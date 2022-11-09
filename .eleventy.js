@@ -39,12 +39,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-const markdownIt = require("markdown-it");
 
-    // Add within your config module
-    const md = new markdownIt({
-    html: true,
-    });
 
 const { DateTime } = require("luxon");
 const { promisify } = require("util");

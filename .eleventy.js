@@ -263,11 +263,11 @@ module.exports = function (eleventyConfig) {
 
     // These are all optional, defaults are shown:
     dir: {
-      input: ".",
-      includes: "_includes",
+      input: "cms",
+      includes: "../theme",
       data: "_data",
       // Warning hardcoded throughout repo. Find and replace is your friend :)
-      output: "_site",
+      output: "public",
     },
   };
 };

@@ -39,6 +39,12 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+const markdownIt = require("markdown-it");
+
+    // Add within your config module
+    const md = new markdownIt({
+    html: true,
+    });
 
 const { DateTime } = require("luxon");
 const { promisify } = require("util");
@@ -170,7 +176,19 @@ module.exports = function (eleventyConfig) {
 
     return array.slice(0, n);
   });
+eleventyConfig.addFilter("markdown", (content) => {
+            if (typeof content == "string") {
+                return md.render(content);
+              }
+              return content;
+          });
+               
+        eleventyConfig.addPassthroughCopy({"theme/assets": "assets"});
 
+        eleventyConfig.addPassthroughCopy("admin");
+        
+        createCollectionsAndFilters(eleventyConfig);
+        
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByTag("posts");
   });

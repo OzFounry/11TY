@@ -180,10 +180,7 @@ eleventyConfig.addFilter("markdown", (content) => {
                
         eleventyConfig.addPassthroughCopy({"theme/assets": "assets"});
 
-        eleventyConfig.addPassthroughCopy("admin");
-        
-        createCollectionsAndFilters(eleventyConfig);
-        
+        eleventyConfig.addPassthroughCopy("admin");        
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByTag("posts");
   });
